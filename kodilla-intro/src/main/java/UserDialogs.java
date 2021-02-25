@@ -12,4 +12,53 @@ public class UserDialogs {
             System.out.println("Name is too short. Try again.");
         }
     }
+
+    public static String getUserSelection() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Select calculation (A-add, S-subtract, D-divide, M-multiply):");
+            String calc = scanner.nextLine().trim().toUpperCase();
+            switch (calc) {
+                case "A":
+                    return "ADD";
+                case "S":
+                    return "SUB";
+                case "D":
+                    return "DIV";
+                case "M":
+                    return "MUL";
+                default:
+                    System.out.println("Wrong calculation. Try again.");
+            }
+        }
+    }
+
+    public static int getValue() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter number:");
+        int val = scanner.nextInt();
+        return val;
+    }
+    public static String getUserSelection2() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Select letter (B-biały, c-czarny, n-niebieski. z-zielony):");
+            String clr = scanner.nextLine().trim().toUpperCase();
+            switch (clr) {
+                case "B":
+                    return "biały";
+                case "C":
+                    return "czarny";
+                case "N":
+                    return "niebieski";
+                case "Z":
+                    return "zielony";
+                default:
+                    System.out.println("Wrong letter. Try again.");
+            }
+        }
+    }
+
+
+
 }

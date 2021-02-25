@@ -1,8 +1,6 @@
-import java.util.Scanner;
-
 public class Grades {
 
-    private int[] grades;
+    public static int[] grades;
     private int size;
 
     public Grades() {
@@ -12,11 +10,23 @@ public class Grades {
 
     public void add(int value) {
         if (this.size == 10) {
-            this.grades[this.size] = value;
-            this.size++;
-
+            return;
         }
+
+        this.grades[this.size] = value;
+        this.size++;
+
     }
+
+    public static double avg() {
+        double sum = 0;
+        for (int i = 0; i < grades.length; i++) {
+            sum = sum + grades[i];
+        }
+        double a = sum / grades.length;
+        return a;
+    }
+
 }
 
 

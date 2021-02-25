@@ -1,27 +1,26 @@
-import java.util.Scanner;
-
 public class GradesTest {
 
+
     public static void main(String[] args) {
-        int[] grades = new int[10];
-        Scanner scan = new Scanner(System.in);
+        Grades grades = new Grades();
+        grades.add(1);
+        grades.add(2);
+        grades.add(3);
+        grades.add(4);
+        grades.add(5);
+        grades.add(6);
+        grades.add(7);
+        grades.add(8);
+        grades.add(9);
+        grades.add(10);
 
-        for (int i = 0; i < 10; i++) {
-            int j = i+1;
-            System.out.println("Wprowadź ocenę nr " + j + "; ");
-            grades[i] = scan.nextInt();
-        }
+        int l = Grades.grades.length;
+        System.out.println("Ostatnia wprowadzona ocena: " +l);
 
-        System.out.println("Ostatnia wprowadzona ocena to: " + grades[9]);
+        System.out.println("Srednia ocena: " +Grades.avg());
 
-        int suma = 0;
 
-        for (int i = 0; i < grades.length; i++) {
-            suma = grades[i] + suma;
-        }
-        double avg = (double) suma / grades.length;
-        System.out.println("Srednia arytmetyczna: " + avg);
     }
-}
 
+}
 
