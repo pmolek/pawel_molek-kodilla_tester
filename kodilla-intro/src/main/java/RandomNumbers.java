@@ -4,13 +4,11 @@ public class RandomNumbers {
     public static void main(String[] args) {
         int l;
         int sum = 0;
-        int min;
-        int max;
+        int min = 30;
+        int max = 0;
 
         Random r = new Random();
-        min = r.nextInt(31);
-        max = min;
-        sum = sum + max;
+
         while (sum < 5000) {
             l = r.nextInt(31);
 
