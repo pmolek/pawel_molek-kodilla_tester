@@ -17,17 +17,43 @@ public class Bank {
         this.cashMachines = newTab;
 
     }
-    public int sumInAll(){
+
+    public int sumInAll() {
         int sum = 0;
-        for (int i = 0; i< cashMachines.length; i++){
+        for (int i = 0; i < cashMachines.length; i++) {
             sum = sum + cashMachines[i].sumInCM();
         }
-            return sum;
+        return sum;
     }
-    public int sumTrans(){
+
+    public int sumTransInMinus() {
         int sum = 0;
-        for ()
+        for (int i = 0; i < cashMachines.length; i++) {
+            sum = sum + cashMachines[i].sumNumberOfTransactionsInMinus();
+        }
+        return sum;
     }
 
+    public int sumTransInPlus() {
+        int sum = 0;
+        for (int i = 0; i < cashMachines.length; i++) {
+            sum = sum + cashMachines[i].sumNumberOfTransactionsInPlus();
+        }
+        return sum;
+    }
 
+    public int avgSumInMinus() {
+        int avg = 0;
+        for (int i = 0; i < cashMachines.length; i++){
+            avg = cashMachines[i].sumInMinus()/ cashMachines.length;
+        }
+        return avg;
+    }
+    public int avgSumInPlus() {
+        int avg = 0;
+        for (int i = 0; i < cashMachines.length; i++){
+            avg = cashMachines[i].sumInPlus()/ cashMachines.length;
+        }
+        return avg;
+    }
 }

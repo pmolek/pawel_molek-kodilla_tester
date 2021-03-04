@@ -11,8 +11,10 @@ public class CarUtils {
     public static void describeCar(Car car){
         System.out.println("-----------------------------");
         System.out.println("Car kind: " + getCarName(car));
-        System.out.println("Speed increase: " + car.increaseSpeed());
-        System.out.println("Speed decrease: " + car.decreaseSpeed());
+        car.increaseSpeed();
+        System.out.println("Speed increase: " + car.getSpeed());
+        car.decreaseSpeed();
+        System.out.println("Speed decrease: " + car.getSpeed());
     }
     private static String getCarName(Car car) {
         if (car instanceof Car1)

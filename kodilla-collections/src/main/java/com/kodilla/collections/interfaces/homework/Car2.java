@@ -1,29 +1,29 @@
 package com.kodilla.collections.interfaces.homework;
 
 public class Car2 implements Car {
-    private int speedPlus;
-    private int speedMinus;
+    private int speed;
 
 
-    public Car2(int speedPlus, int speedMinus) {
-        this.speedPlus = speedPlus;
-        this.speedMinus = speedMinus;
+
+    public Car2(int speed) {
+        this.speed = speed;
+
     }
 
     @Override
-    public int increaseSpeed() {
-        return 3 * speedPlus;
+    public void increaseSpeed() {
+        speed = 50 + speed;
     }
 
     @Override
-    public int decreaseSpeed() {
-        return 2 * speedMinus;
+    public void decreaseSpeed() {
+        speed = speed - 10;
 
     }
 
     @Override
     public int getSpeed() {
-        return startSpeed + increaseSpeed() - decreaseSpeed();
+        return speed;
     }
 
 }

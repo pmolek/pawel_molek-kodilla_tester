@@ -22,14 +22,14 @@ public class CarApplication {
     public static Car drawCar() {
         Random random = new Random();
         int drawCarKind = random.nextInt(3);
-        int sp = random.nextInt(100);
-        int sm = random.nextInt(100);
+        int speed = random.nextInt(100);
+
         if (drawCarKind == 0)
-            return new Car1(sp, sm);
+            return new Car1(speed);
         else if (drawCarKind == 1)
-            return new Car2(sp, sm);
+            return new Car2(speed);
         else
-            return new Car3(sp, sm);
+            return new Car3(speed);
 
     }
 }
