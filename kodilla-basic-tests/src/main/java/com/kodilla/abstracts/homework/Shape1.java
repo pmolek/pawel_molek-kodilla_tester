@@ -1,8 +1,8 @@
 package com.kodilla.abstracts.homework;
 
 public class Shape1 extends Shape {
-    private static int a;
-    private static int b;
+    private int a;
+    private int b;
 
     public Shape1(int a, int b) {
         this.a = a;

@@ -9,27 +9,31 @@ public class CashMachine {
         this.values = new int[0];
     }
 
-
     public void add(int value) {
-
-        this.size++;
-        int[] newTab = new int[this.size];
-        System.arraycopy(values, 0, newTab, 0, values.length);
-        newTab[this.size - 1] = value;
-        this.values = newTab;
-
+        if (value > -1000 && value < 5000 && isAllowedToPayout(value)) {
+            this.size++;
+            int[] newTab = new int[this.size];
+            System.arraycopy(values, 0, newTab, 0, values.length);
+            newTab[this.size - 1] = value;
+            this.values = newTab;
+        } else {
+            System.out.println("zła wartośc");
+        }
     }
-    //jak zrobic metode sprawdzajaca czy wartosc wyplaty
-    //nie przewyzsza dostepnych w bankomacie srodkow
-    //i kolejna dająca wartosci brzegowe pojedynczej operacji czyli wyplata
-    //nie wieksza niz 1000 a wplata nie wieksza niz 5000
+
+    private boolean isAllowedToPayout(int value){
+        int sum = sumInCM();
+        return value < sum;
+
+        }
+
 
     public int[] getValues() {
         return values;
     }
 
     public int sumInCM() {
-        int sum = 10000;
+        int sum = 0;
         for (int i = 0; i < values.length; i++) {
             sum = sum + values[i];
         }
