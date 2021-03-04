@@ -11,7 +11,7 @@ public class Shape3 extends Shape {
         System.out.println("obliczanie pola i obwodu trójkąta równobocznego");
     }
 
-
+    @Override
     public double giveSurfaceArea() {
         double SA1;
         SA1 = (p * h)/2;

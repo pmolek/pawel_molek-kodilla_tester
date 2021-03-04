@@ -10,7 +10,7 @@ public class Shape1 extends Shape {
         System.out.println("obliczanie pola i obwodu prostokąta");
     }
 
-
+    @Override
     public double giveSurfaceArea() {
         double SA1;
         SA1 = a * b;

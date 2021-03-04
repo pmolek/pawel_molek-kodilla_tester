@@ -8,7 +8,7 @@ public class Shape2 extends Shape {
         System.out.println("obliczanie pola i obwodu koła");
     }
 
-
+    @Override
     public double giveSurfaceArea() {
         double SA1;
         SA1 = Pi * r * r;
