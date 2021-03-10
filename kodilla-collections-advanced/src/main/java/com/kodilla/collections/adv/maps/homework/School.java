@@ -6,7 +6,7 @@ import java.util.Objects;
 
 
 public class School {
-    private static String name;
+    private String name;
 
     private List<Integer> students = new ArrayList<>();
 
@@ -22,8 +22,8 @@ public class School {
         return sum;
 }
 
-    public static String getName() {
-        return School.name;
+    public String getName() {
+        return name;
     }
 
     @Override

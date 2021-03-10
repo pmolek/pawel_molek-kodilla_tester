@@ -84,7 +84,6 @@ public class CashMachneTestSuite {
         cashMachine.add(-1000);
         cashMachine.add(-1000);
         cashMachine.add(-1000);
-        cashMachine.add(-1000);
 
         int[] values = cashMachine.getValues();
         assertEquals(0, cashMachine.sumInCM());

@@ -22,9 +22,9 @@ public class CarListApplication {
         cars.add(new Car2(30));
         cars.add(new Car3(10));
 
-      //  for (Car car: cars) {
-      //  CarUtils.describeCar((Car) cars);
-      //  System.out.println(CarUtils.describeCar((Car) cars));}
+       for (Car car: cars) {
+           CarUtils.describeCar(car);
+       }
 
         System.out.println("-----------------------------");
         for (Car car: cars) System.out.println("car speed: " + car.getSpeed());

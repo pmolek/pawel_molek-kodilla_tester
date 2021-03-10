@@ -23,7 +23,7 @@ public class CashMachine {
 
     private boolean isAllowedToPayout(int value){
         int sum = sumInCM();
-        return value < sum;
+        return Math.abs(value) <= sum;
 
         }
 
