@@ -22,16 +22,13 @@ public class CarListApplication {
         cars.add(new Car2(30));
         cars.add(new Car3(10));
 
-       // for (Car car: cars) {
-       //     CarUtils.describeCar((Car) car);
-       //     System.out.println("Dane auta: " + CarUtils.describeCar((Car) car));
-       // }
-
-
+      //  for (Car car: cars) {
+      //  CarUtils.describeCar((Car) cars);
+      //  System.out.println(CarUtils.describeCar((Car) cars));}
 
         System.out.println("-----------------------------");
-        System.out.println(cars.size());
         for (Car car: cars) System.out.println("car speed: " + car.getSpeed());
+        System.out.println(cars.size());
 
         System.out.println("-----------------------------");
         cars.remove(1);

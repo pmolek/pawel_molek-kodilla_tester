@@ -12,6 +12,7 @@ public class Car1 implements Car {
 
     }
 
+
     @Override
     public void increaseSpeed() {
         speed = 30 + speed;
