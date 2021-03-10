@@ -10,14 +10,14 @@ public class CashMachine {
     }
 
     public void add(int value) {
-        if (value > -1000 && value < 5000 && isAllowedToPayout(value)) {
+        if (isAllowedToPayout(value) && value > -1001 && value < 5001) {
             this.size++;
             int[] newTab = new int[this.size];
             System.arraycopy(values, 0, newTab, 0, values.length);
             newTab[this.size - 1] = value;
             this.values = newTab;
         } else {
-            System.out.println("zła wartośc");
+            System.out.println("zla wartosc");
         }
     }
 
@@ -33,7 +33,7 @@ public class CashMachine {
     }
 
     public int sumInCM() {
-        int sum = 0;
+        int sum = 10000;
         for (int i = 0; i < values.length; i++) {
             sum = sum + values[i];
         }

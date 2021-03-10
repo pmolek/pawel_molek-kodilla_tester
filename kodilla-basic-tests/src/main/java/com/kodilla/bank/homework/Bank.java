@@ -44,16 +44,19 @@ public class Bank {
 
     public int avgSumInMinus() {
         int avg = 0;
-        for (int i = 0; i < cashMachines.length; i++){
-            avg = cashMachines[i].sumInMinus()/ cashMachines.length;
+        for (int i = 0; i < cashMachines.length; i++) {
+            avg = cashMachines[i].sumInMinus() / cashMachines.length;
         }
         return avg;
     }
+
     public int avgSumInPlus() {
         int avg = 0;
-        for (int i = 0; i < cashMachines.length; i++){
-            avg = cashMachines[i].sumInPlus()/ cashMachines.length;
+        for (int i = 0; i < cashMachines.length; i++) {
+            avg = cashMachines[i].sumInPlus() / cashMachines.length;
         }
         return avg;
     }
+
+
 }

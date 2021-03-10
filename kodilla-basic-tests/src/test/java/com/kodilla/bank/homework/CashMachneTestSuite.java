@@ -62,4 +62,32 @@ public class CashMachneTestSuite {
         cashMachine.sumNumberOfTransactionsInMinus();
         assertEquals(2, cashMachine.sumNumberOfTransactionsInMinus());
     }
+
+    @Test
+    public void checkTransactionDetails(){
+        cashMachine.add(5400);
+        cashMachine.add(-1200);
+        int[] values = cashMachine.getValues();
+        assertEquals(0, values.length);
+
+    }
+
+    @Test
+    public void isAllowedToPayout(){
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+        cashMachine.add(-1000);
+
+        int[] values = cashMachine.getValues();
+        assertEquals(0, cashMachine.sumInCM());
+    }
+
 }

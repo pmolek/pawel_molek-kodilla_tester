@@ -8,7 +8,7 @@ import com.kodilla.collections.interfaces.homework.Car3;
 
 public class CarUtils {
 
-    public static void describeCar(Car car){
+    public static void describeCar(Car car) {
         System.out.println("-----------------------------");
         System.out.println("Car kind: " + getCarName(car));
         car.increaseSpeed();
@@ -16,6 +16,8 @@ public class CarUtils {
         car.decreaseSpeed();
         System.out.println("Speed decrease: " + car.getSpeed());
     }
+
+
     private static String getCarName(Car car) {
         if (car instanceof Car1)
             return "Car1";
@@ -26,5 +28,6 @@ public class CarUtils {
         else
             return "Unknown car name";
     }
+
 
 }
