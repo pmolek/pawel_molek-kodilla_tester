@@ -2,7 +2,8 @@ package com.kodilla.bank.homework;
 
 
 public class Bank {
-   private int size;
+
+    private int size;
 
 
     private CashMachine[] cashMachines = new CashMachine[0];
