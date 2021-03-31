@@ -1,6 +1,7 @@
 package com.kodilla.bank.homework;
 
 public class CashMachine {
+
     private int[] values;
     private int size;
 

@@ -2,7 +2,7 @@ package com.kodilla.bank.homework;
 
 
 public class Bank {
-
+    private int values;
     private int size;
 
 
@@ -16,6 +16,11 @@ public class Bank {
         newTab[this.size - 1] = cashMachine;
         this.cashMachines = newTab;
 
+    }
+
+    public int getValues() {
+        int values = cashMachines.length;
+        return values;
     }
 
     public int sumInAll() {
@@ -44,19 +49,22 @@ public class Bank {
 
     public int avgSumInMinus() {
         int avg = 0;
+        int sum = 0;
         for (int i = 0; i < cashMachines.length; i++) {
-            avg = cashMachines[i].sumInMinus() / cashMachines.length;
+            sum = sum + cashMachines[i].sumInMinus();
+            avg = sum / sumTransInMinus();
         }
-        return avg;
+        return Math.abs(avg);
     }
 
     public int avgSumInPlus() {
         int avg = 0;
+        int sum = 0;
         for (int i = 0; i < cashMachines.length; i++) {
-            avg = cashMachines[i].sumInPlus() / cashMachines.length;
+           sum = sum + cashMachines[i].sumInPlus();
+           avg = sum / sumTransInPlus();
         }
         return avg;
+
     }
-
-
 }
