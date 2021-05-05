@@ -1,8 +1,11 @@
 package com.kodilla.collections.adv.immutable.special.homework;
 
-import com.kodilla.collections.adv.immutable.special.homework.Book;
+public class BookManager<bookCollection> {
 
-public class BookManager {
+    public static Book createBook(String title, String author){
+        return createBook(title, author);
+
+    }
 
 
 
