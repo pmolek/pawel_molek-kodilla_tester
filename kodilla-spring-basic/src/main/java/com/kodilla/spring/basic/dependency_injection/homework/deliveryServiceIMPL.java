@@ -4,6 +4,11 @@ public class deliveryServiceIMPL implements DeliveryService{
 
     @Override
     public boolean deliverPackage(String address, double weight) {
-        return false;
+        if (weight > 30) {
+            System.out.println("Package too heavy");
+            return false;
+        }
+        System.out.println("Delivering in progress...");
+        return true;
     }
 }
