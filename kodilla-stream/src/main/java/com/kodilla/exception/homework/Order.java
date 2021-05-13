@@ -1,5 +1,7 @@
 package com.kodilla.exception.homework;
 
+import java.util.Objects;
+
 public class Order {
     private String number;
 
@@ -7,7 +9,21 @@ public class Order {
         this.number = number;
     }
 
+
     public String getNumber() {
         return number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return number.equals(order.number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 }

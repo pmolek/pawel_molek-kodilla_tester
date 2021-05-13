@@ -27,7 +27,7 @@ public class ShippingCenterTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
         DeliveryService bean = context.getBean(DeliveryService.class);
         boolean deliverPackage = bean.deliverPackage("ulica 1, miasto1", 20);
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(deliverPackage);
     }
 
     @Test
@@ -35,6 +35,6 @@ public class ShippingCenterTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
         DeliveryService bean = context.getBean(DeliveryService.class);
         boolean deliverPackage = bean.deliverPackage("ulica 1, miasto1", 40);
-        Assertions.assertFalse(false);
+        Assertions.assertFalse(deliverPackage);
     }
 }

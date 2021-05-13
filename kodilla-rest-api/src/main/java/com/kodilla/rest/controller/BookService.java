@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+public
 class BookService {
     private List<BookDto> books = new ArrayList<>();
 
@@ -16,5 +17,10 @@ class BookService {
 
     public void addBook(BookDto bookDto) {
         books.add(bookDto);
+    }
+
+    public void removeBook(BookDto bookDto){
+        books.remove(bookDto);
+
     }
 }
