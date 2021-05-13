@@ -1,6 +1,5 @@
 package com.kodilla.rest.controller;
 
-import com.kodilla.rest.domain.BookDto;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
