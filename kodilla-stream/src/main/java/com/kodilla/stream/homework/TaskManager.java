@@ -10,7 +10,7 @@ public class TaskManager {
         List<String> tasks = TaskRepository.getTask()
                 .stream()
                 .filter(d -> d.getDeadline().isAfter(getMyDate()))
-                .map(TaskManager::getTask)
+                .map(Task::getName)
                 .collect(Collectors.toList());
                  System.out.println("zadania przed deadlinem: " + tasks);
 
@@ -21,8 +21,6 @@ public class TaskManager {
         return LocalDate.now();
     }
 
-    public static String getTask(Task task) {
-        return task.getName();
-    }
+
 
 }
