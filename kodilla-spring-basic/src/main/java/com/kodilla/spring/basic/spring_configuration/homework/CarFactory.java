@@ -10,13 +10,15 @@ import java.time.LocalDate;
 public class CarFactory {
     LocalDate localDate = LocalDate.now();
 
+
     @Bean
     public Car chooseCar() {
+
         Car car;
-        if (localDate.isAfter(LocalDate.of(2021, 6, 21)) && localDate.isBefore(LocalDate.of(2021, 9, 23))) {
+        if (localDate.getDayOfYear() > 150 && localDate.getDayOfYear() < 270) {
             car = new Cabrio();
 
-        } else if (localDate.isAfter(LocalDate.of(2021, 12, 22)) || localDate.isBefore(LocalDate.of(2021, 3, 21))) {
+        } else if (localDate.getDayOfYear() < 50 || localDate.getDayOfYear() > 330) {
             car = new SUV();
 
         } else {
