@@ -1,5 +1,6 @@
 package com.kodilla.spring.basic.spring_configuration.homework;
 
+import org.apache.logging.log4j.MarkerManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
+
 
 public class CarFactoryTestSuite {
 
@@ -27,7 +29,6 @@ public class CarFactoryTestSuite {
             Assertions.assertTrue(car.hasLightsTurnedOn());
             return;}
         else Assertions.assertFalse(car.hasLightsTurnedOn());
-
 
         System.out.println();
         System.out.println();

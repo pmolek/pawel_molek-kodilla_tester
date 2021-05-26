@@ -33,11 +33,16 @@ public class Notebook {
     public void checkYearAndPrice() {
         if ((this.year < 2005) && (this.price < 900)) {
             System.out.println("This notebook is old but cheap.");
-        } else if ((this.year >= 2005) && (this.year < 2016) && (this.price > 1000) && (this.price < 1500)) {
+        }
+        else if
+        ((this.year >= 2005) && (this.year < 2016) && (this.price > 1000) && (this.price < 1500))
+        {
             System.out.println("The age and price of this notebook is quite good.");
-        } else if ((this.year >= 2005) && (this.year < 2016) && (this.price > 1900)) {
+        }
+        else if ((this.year >= 2005) && (this.year < 2016) && (this.price > 1900)) {
             System.out.println("This notebook is too expensive for this age.");
-        } else {
+        }
+        else {
             System.out.println("This notebook is quite new and expensive");
         }
     }

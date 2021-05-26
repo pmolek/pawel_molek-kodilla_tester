@@ -39,6 +39,7 @@ public class UserDialogs {
         int val = scanner.nextInt();
         return val;
     }
+
     public static String getUserSelection2() {
         Scanner scanner = new Scanner(System.in);
         while (true) {

@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+
 
 public class Application {
     String name;
@@ -13,12 +13,15 @@ public class Application {
 
 
     }
+
 public boolean verifyName(){
         return name != null;
 }
+
 public boolean verifyAge(){
         return age > 30;
 }
+
 public boolean verifyHeigth(){
         return height > 160;
     }

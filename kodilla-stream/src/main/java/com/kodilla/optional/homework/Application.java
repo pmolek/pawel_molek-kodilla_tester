@@ -21,11 +21,11 @@ public class Application {
             optionalTeacher.ifPresentOrElse(
                     (teacher)
                             -> {
-                        System.out.println("student: " + student.getName() + " nauczyciel:  " + student.getTeacher().getName());
+                        System.out.println("student: "+student.getName()+" nauczyciel:  "+student.getTeacher().getName());
                     },
                     ()
                             -> {
-                        System.out.println("student: " + student.getName() + " nauczyciel: <undefined>");
+                        System.out.println("student: "+student.getName()+" nauczyciel: <undefined>");
                     });
 
         }
