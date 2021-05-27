@@ -2,21 +2,25 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.GoogleResults;
 import pages.GoogleSearch;
+import pages.RandomResult;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class TestGoogle {
 
-    static WebDriver driver;
+    WebDriver driver;
 
     @Before
     public void testSetup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\pmole\\IdeaProjects\\pawel_molek-kodilla_tester\\kodilla-google-selenium\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\pmole\\IdeaProjects\\pawel_molek-kodilla_tester\\kodilla-google-selenium\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.navigate().to("http://www.google.pl");
+        driver.navigate().to("http://www.google.com");
     }
-
 
     @After
     public void tearDown() {
@@ -27,5 +31,19 @@ public class TestGoogle {
     public void testGooglePage() {
         GoogleSearch googleSearch = new GoogleSearch(driver);
         googleSearch.searchResults();
+    }
+
+    @Test
+    public void shouldShowRandomSearchResult() {
+        GoogleSearch googleSearch = new GoogleSearch(driver);
+        googleSearch.searchResults();
+
+        GoogleResults googleResults = new GoogleResults(driver);
+        WebElement webElement = googleResults.randomResult();
+        RandomResult randomResult = new RandomResult(driver);
+
+        WebElement randomWebElement = randomResult.randomPage(webElement);
+
+        assertEquals(webElement, randomWebElement);
     }
 }
