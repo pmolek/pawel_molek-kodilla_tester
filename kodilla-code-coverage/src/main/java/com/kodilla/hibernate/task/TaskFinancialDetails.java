@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.task;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
@@ -17,6 +18,19 @@ public class TaskFinancialDetails {
         this.paid = paid;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
+    }
+
+    @Id
     public int getId() {
         return id;
     }

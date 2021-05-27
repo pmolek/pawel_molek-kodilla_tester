@@ -16,7 +16,7 @@ public class TaskListRepositoryTestSuite {
     @Autowired
     private TaskListRepository taskListRepository;
 
-    private static final String DESCRIPTION = "Test: Hibernate";
+    private static final String DESCRIPTION = "Tests: Hibernate";
 
     @Test
     public void testFindByListName() {
