@@ -17,7 +17,7 @@ public class TestGoogle {
 
     @Before
     public void testSetup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\pmole\\IdeaProjects\\pawel_molek-kodilla_tester\\kodilla-google-selenium\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.navigate().to("http://www.google.com");
     }
