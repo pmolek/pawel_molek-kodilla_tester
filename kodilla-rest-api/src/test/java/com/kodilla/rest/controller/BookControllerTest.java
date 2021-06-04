@@ -29,7 +29,7 @@ class BookControllerTest {
 
 
     @Test
-    public void shouldAddBooks(){
+    public void shouldAddAndRemoveBooks(){
         //given
         BookService bookServiceMock = Mockito.mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);
@@ -46,5 +46,7 @@ class BookControllerTest {
 
         //then
         assertThat(result).hasSize(3);
+
     }
+
 }

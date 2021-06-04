@@ -1,84 +1,101 @@
 package com.kodilla.mockito.homework;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class WeatherAppService {
 
-    private Map<WeatherLocalization, List<WeatherClient>> localizations = new HashMap<>();
+    private Map<WeatherLocalization, Set<WeatherClient>> localizations = new HashMap<>();
 
-
-    public void addLocalization(WeatherLocalization weatherLocalization) {
-        System.out.println("Adding localization: " + weatherLocalization);
-        localizations.put(weatherLocalization, new ArrayList<WeatherClient>());
-
+    public void addClient(WeatherLocalization weatherLocalization, WeatherClient weatherClient) {
+        Set<WeatherClient> weatherClients = localizations.get(weatherLocalization);
+        if (weatherClients == null) {
+            weatherClients = new HashSet<>();
+            weatherClients.add(weatherClient);
+            localizations.put(weatherLocalization, weatherClients);
+        } else {
+            weatherClients.add(weatherClient);
+        }
     }
 
-    public void removeLocalization(WeatherLocalization weatherLocalization) {
-        System.out.println("Removing localization " + weatherLocalization);
-        for (Map.Entry<WeatherLocalization, List<WeatherClient>> entry : localizations.entrySet()) {
-            if (entry.getKey().equals(weatherLocalization)) {
-                for (WeatherClient weatherClient : entry.getValue()) {
-                    entry.getKey().removeClient(weatherClient);
+    public boolean localizationExists(WeatherLocalization weatherLocalization) {
+        return localizations.containsKey(weatherLocalization);
+    }
+
+    public boolean removeClientFromLocalization(WeatherLocalization weatherLocalization, WeatherClient weatherClient) {
+        if (localizations.size() > 0) {
+            if (localizations.containsKey(weatherLocalization)) {
+                if (localizations.get(weatherLocalization).contains(weatherClient)) {
+                    if (localizations.get(weatherLocalization).remove(weatherClient)) {
+                        return true;
+                    }
+                } else {
+                    return false;
                 }
             }
         }
-        localizations.remove(weatherLocalization);
-    }
-
-    public void addClient(WeatherClient weatherClient, WeatherLocalization weatherLocalization) {
-        if (!localizations.containsKey(weatherLocalization)) {
-            System.out.println("Localization not found. Creating a new one");
-            this.addLocalization(weatherLocalization);
-        } else {
-            System.out.println("Localization found.");
-        }
-        for (Map.Entry<WeatherLocalization, List<WeatherClient>> entry : localizations.entrySet()) {
-            if (entry.getKey().equals(weatherLocalization)) {
-                entry.getValue().add(weatherClient);
-                entry.getKey().receiveClient(weatherClient);
-                System.out.println("Adding client " + weatherClient + " to localization " + weatherLocalization);
-            }
-        }
-    }
-
-    public void removeClientFromLocalization(WeatherClient weatherClient, WeatherLocalization weatherLocalization) {
-        for (Map.Entry<WeatherLocalization, List<WeatherClient>> entry : localizations.entrySet()) {
-            if (entry.getKey().equals(weatherLocalization) && entry.getValue().contains(weatherClient)) {
-                entry.getValue().remove(weatherClient);
-                entry.getKey().removeClient(weatherClient);
-                System.out.println("Removing client " + weatherClient + " from localization " + weatherLocalization + ".");
-            }
-        }
+        return false;
     }
 
     public void removeSubscriberFromAllLocalizations(WeatherClient weatherClient) {
-        for (Map.Entry<WeatherLocalization, List<WeatherClient>> entry : localizations.entrySet()) {
-            if (entry.getValue().contains(weatherClient)) {
-                entry.getValue().remove(weatherClient);
-                entry.getKey().removeClient(weatherClient);
+        if (localizations.size() > 0) {
+            for (Map.Entry<WeatherLocalization, Set<WeatherClient>> entry : localizations.entrySet()) {
+                removeClientFromLocalization(entry.getKey(), weatherClient);
             }
         }
-        System.out.println("Removing client " + weatherClient + " from all followed localizations.");
     }
 
     public void sendNotificationToLocalization(WeatherNotification weatherNotification, WeatherLocalization weatherLocalization) {
-        for (Map.Entry<WeatherLocalization, List<WeatherClient>> entry : this.localizations.entrySet()) {
+        for (Map.Entry<WeatherLocalization, Set<WeatherClient>> entry : localizations.entrySet()) {
             if (entry.getKey().equals(weatherLocalization)) {
-                entry.getValue().forEach(user -> user.receive(weatherNotification));
-                System.out.println("Notification sent to " + weatherLocalization + "clients");
+                for (WeatherClient subscriber : entry.getValue()) {
+                    subscriber.receive(weatherNotification);
+                }
             }
         }
     }
 
     public void sendNotificationToAll(WeatherNotification weatherNotification) {
-        for (Map.Entry<WeatherLocalization, List<WeatherClient>> entry : this.localizations.entrySet()) {
-            entry.getValue().forEach(weatherClient -> weatherClient.receive(weatherNotification));
-            System.out.println("Notification sent to all clients.");
+        Set<WeatherClient> notifiedClients = new HashSet<>();
+        for (Map.Entry<WeatherLocalization, Set<WeatherClient>> entry : localizations.entrySet()) {
+            for (WeatherClient client : entry.getValue()) {
+                if (!notifiedClients.contains(client)) {
+                    client.receive(weatherNotification);
+                    notifiedClients.add(client);
+                }
+            }
         }
+    }
 
+    public void removeLocalization(WeatherLocalization weatherLocalization) {
+        if (localizations.size() > 0) {
+            if (localizations.containsKey(weatherLocalization)) {
+                localizations.remove(weatherLocalization);
+            }
+        }
+    }
+
+
+    public boolean isWeatherClientSubscribedToGivenLocalization(WeatherLocalization weatherLocalization, WeatherClient weatherClient) {
+        if (localizations.containsKey(weatherLocalization)) {
+            Set<WeatherClient> localizationClients = localizations.get(weatherLocalization);
+            return localizationClients.contains(weatherClient);
+        }
+        return false;
+    }
+
+    public Set<WeatherLocalization> getClientsLocalizations(WeatherClient weatherClient) {
+        Set<WeatherLocalization> clientLocalizations = new HashSet<>();
+        if (localizations.size() > 0) {
+            for (Map.Entry<WeatherLocalization, Set<WeatherClient>> entry : localizations.entrySet()) {
+                for (WeatherClient client : entry.getValue()) {
+                    if (client.equals(weatherClient)) {
+                        clientLocalizations.add(entry.getKey());
+                    }
+                }
+            }
+        }
+        return clientLocalizations;
     }
 }
+

@@ -58,4 +58,10 @@ public class PrimeCheckerTestSuite {
         System.out.println("Test number " + count);
         assertFalse(result);
     }
+
+    @Test
+    void isPrime() {
+        assertTrue(checker.isPrime(2));
+    }
+
 }
