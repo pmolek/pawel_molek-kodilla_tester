@@ -5,7 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.shaded.org.apache.commons.io.FileUtils;
@@ -15,18 +15,18 @@ import java.io.IOException;
 
 public class BrowserTest {
 
-    public BrowserWebDriverContainer chromeContainer;
+    public BrowserWebDriverContainer firefoxContainer;
 
     @Before
     public void setUp() {
-        chromeContainer = new BrowserWebDriverContainer()
-                .withCapabilities(new ChromeOptions());
-        chromeContainer.start();
+        firefoxContainer = new BrowserWebDriverContainer()
+                .withCapabilities(new FirefoxOptions());
+        firefoxContainer.start();
     }
 
     @Test
     public void chromeTest() throws IOException {
-        RemoteWebDriver driver = chromeContainer.getWebDriver();
+        RemoteWebDriver driver = firefoxContainer.getWebDriver();
         driver.get("http://allegro.pl");
 
         File screenshot = driver.getScreenshotAs(OutputType.FILE);
@@ -36,7 +36,7 @@ public class BrowserTest {
 
     @After
     public void tearDown() {
-        chromeContainer.stop();
+        firefoxContainer.stop();
     }
 
 }
